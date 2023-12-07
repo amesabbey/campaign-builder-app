@@ -1,0 +1,10 @@
+{
+    "angular-schematics.schematicsDefaultOptions": {
+        "angular-component": {
+            "ngOnInit": false
+        },
+        "angular-page": {
+            "skipNgOnInit": true
+        }
+    }
+}
