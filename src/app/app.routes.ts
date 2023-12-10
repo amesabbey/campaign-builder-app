@@ -1,4 +1,4 @@
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { CharactersPageComponent } from './characters-page/characters-page.component';
 import { EncountersPageComponent } from './encounters-page/encounters-page.component';

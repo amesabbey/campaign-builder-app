@@ -1,1 +1,27 @@
-<p>characters-page works!</p>
+<h1>Characters</h1>
+
+<div class="character-sidebar">
+    <app-npc-list></app-npc-list>
+</div>
+
+<div class="character-body">
+    <mat-accordion class="character-accordion">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Create a New Character
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <app-character-creator></app-character-creator>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    View Character
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>This is where the character details will be displayed after saved.</p>
+            <p>Consider being able to open multiple accordion panels of <br>characters for easy reference.</p>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
