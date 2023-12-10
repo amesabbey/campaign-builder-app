@@ -1,0 +1,211 @@
+<form [formGroup]="characterForm" (ngSubmit)="onSubmit(characterForm.value)" class="new-character-form">
+    <div class="character-names" formGroupName="names">
+
+        <h2>Names</h2>
+
+        <mat-form-field appearance="outline" class="halved-input">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Title" formControlName="title">
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input matInput placeholder="Official or legal name" formControlName="fullName">
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Short Name</mat-label>
+            <input matInput placeholder="Common name" formControlName="shortName">
+        </mat-form-field>
+    </div>
+    
+    <div class="character-identity" formGroupName="identity">
+
+        <h2>Identity</h2>
+
+        <div class="row">
+            <mat-form-field appearance="outline" class="halved-input">
+                <mat-label>Age</mat-label>
+                <input matInput placeholder="Age" formControlName="age">
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender">
+                    @for (option of genders; track option) {
+                        <mat-option value="{{option.value}}">{{option.viewValue}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Sexuality</mat-label>
+                <input matInput placeholder="Sexual orientation" formControlName="sexuality">
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Alignment</mat-label>
+                <mat-select formControlName="alignment">
+                    @for (option of alignments; track option) {
+                        <mat-option value="{{option.value}}">{{option.viewValue}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    
+    <div class="character-physical" formGroupName="physical">
+
+        <h2>Physical</h2>
+
+        <div class="row">
+            <mat-form-field appearance="outline" class="halved-input">
+                <mat-label>Height</mat-label>
+                <input matInput placeholder="Height" formControlName="height">
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="halved-input">
+                <mat-label>Weight</mat-label>
+                <input matInput placeholder="Weight" formControlName="weight">
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="halved-input">
+                <mat-label>Eye Color</mat-label>
+                <input matInput placeholder="Eye color" formControlName="eyes">
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Hair Appearance</mat-label>
+                <input matInput placeholder="Hair description" formControlName="hair">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="halved-input">
+                <mat-label>Size</mat-label>
+                <mat-select formControlName="size">
+                    @for (option of sizes; track option) {
+                        <mat-option value="{{option.value}}">{{option.viewValue}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="short-remainder">
+                <mat-label>Build Description</mat-label>
+                <input matInput placeholder="Brief physical description" formControlName="build">
+            </mat-form-field>
+        </div>
+    </div>
+    
+    <div class="character-relationships" formGroupName="relationships">
+
+        <h2>Relationships</h2>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>NPC Type</mat-label>
+                <mat-select formControlName="type">
+                    @for (option of npcTypes; track option) {
+                        <mat-option value="{{option.value}}">{{option.viewValue}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="normal-remainder">
+                <mat-label>Attitude regarding the Players</mat-label>
+                <mat-select formControlName="attitude">
+                    @for (option of npcAttitudes; track option) {
+                        <mat-option value="{{option.value}}">{{option.viewValue}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="width-input">
+                <mat-label>Significant Other</mat-label>
+                <input matInput placeholder="Lover or partnership" formControlName="partner">
+            </mat-form-field>
+        </div>
+        <div class="row">    
+            <mat-form-field appearance="outline" class="width-input">
+                <mat-label>Family</mat-label>
+                <input matInput placeholder="Family members" formControlName="family">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="width-input">
+                <mat-label>Friends</mat-label>
+                <input matInput placeholder="Friends" formControlName="friends">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="width-input">
+                <mat-label>Enemies</mat-label>
+                <input matInput placeholder="Enemies" formControlName="enemies">
+            </mat-form-field>
+        </div>
+    </div>
+    
+    <div class="character-personality" formGroupName="personality">
+
+        <h2>Personal Details</h2>
+
+        <div class="row">
+            <mat-form-field appearance="outline" class="width-input">
+                <mat-label>Motive</mat-label>
+                <input matInput placeholder="Motives" formControlName="motives">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="width-input">
+                <mat-label>Bonds</mat-label>
+                <input matInput placeholder="Bonds" formControlName="bonds">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="width-input">
+                <mat-label>Ideals</mat-label>
+                <input matInput placeholder="Ideals" formControlName="ideals">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="width-input">
+                <mat-label>Flaws</mat-label>
+                <input matInput placeholder="Flaws" formControlName="flaws">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="character-history" formGroupName="history">
+
+        <h2>History</h2>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Current Location</mat-label>
+                <input matInput placeholder="Location" formControlName="location">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Hometown</mat-label>
+                <input matInput placeholder="Hometown" formControlName="hometown">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="width-input">
+                <mat-label>Occupation</mat-label>
+                <input matInput placeholder="Occupation" formControlName="occupation">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="width-input history-box">
+                <mat-label>Backstory</mat-label>
+                <textarea matInput placeholder="Description of important history" formControlName="backstory"></textarea>
+            </mat-form-field>
+        </div>
+
+    </div>
+
+    <button mat-raised-button type="reset" (click)="clearFormData()">Clear</button>
+    <button mat-raised-button type="submit" [disabled]="!characterForm.valid">Submit</button>
+</form>
