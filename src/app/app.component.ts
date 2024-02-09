@@ -12,12 +12,14 @@ import { routes } from './app.routes';
     imports: [
       CommonModule, 
       RouterOutlet, 
-    ]
+    ],
 })
 export class AppComponent {
   title = 'campaign-builder-app';
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)],
+  providers: [
+    provideRouter(routes),
+  ],
 });

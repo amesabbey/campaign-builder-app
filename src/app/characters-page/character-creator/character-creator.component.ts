@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
@@ -9,6 +8,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 interface SelectOption {
   value: string;
@@ -22,7 +22,6 @@ interface SelectOption {
   selector: 'app-character-creator',
   standalone: true,
   imports: [
-    CommonModule, 
     MatFormFieldModule, 
     MatInputModule, 
     MatIconModule,
@@ -134,9 +133,7 @@ export class CharacterCreatorComponent {
   constructor(private http: HttpClient) {}
 
   onSubmit(characterData: any) {
-    // console.warn(this.characterForm.value);
-
-    this.http.post('https://campaign-builder-app-default-rtdb.firebaseio.com/characters.json', characterData)
+    this.createNewCharacter(characterData)
     .subscribe({
       next: response => {
         console.log('Character posted successfully, response: ', response);
@@ -150,6 +147,18 @@ export class CharacterCreatorComponent {
 
   clearFormData() {
     this.characterForm.reset();
+  }
+
+  createNewCharacter(characterData: any): Observable<any> {
+    return this.http.post('https://campaign-builder-app-default-rtdb.firebaseio.com/characters.json', characterData).pipe();
+  }
+
+  retrieveCharacterById(id: string): Observable<any> {
+    return this.http.get(`https://campaign-builder-app-default-rtdb.firebaseio.com/characters/${id}.json`).pipe();
+  }
+
+  getAllCharacters(): Observable<any> {
+    return this.http.get('https://campaign-builder-app-default-rtdb.firebaseio.com/characters.json').pipe();
   }
 
 }

@@ -1,5 +1,4 @@
 export interface Character {
-    id: string;
     history: {
         backstory: string;
         hometown: string;

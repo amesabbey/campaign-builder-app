@@ -1,2 +1,8 @@
 <p>npc-list works!</p>
 <p>This is where all characters <br>saved to the database will <br>be recursively displayed.</p>
+
+<div>
+    @for (character of characterList; track character) {
+        <a mat-button class="npc-list">{{character}}</a>
+    }
+</div>
